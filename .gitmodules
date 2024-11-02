@@ -7,3 +7,6 @@
 [submodule "h-learning-video-hls"]
 	path = h-learning-video-hls
 	url = git@github.com:duyhung2k4/h-learning-video-hls.git
+[submodule "h-learning-core"]
+	path = h-learning-core
+	url = git@github.com:duyhung2k4/h-learning-core.git
