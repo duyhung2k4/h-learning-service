@@ -50,7 +50,7 @@ func QueueUrlQuantity() {
 		err := json.Unmarshal(d.Body, &payload)
 		if err != nil {
 			log.Println("error msg: ", err)
-			d.Reject(true)
+			d.Reject(false)
 			continue
 		}
 
