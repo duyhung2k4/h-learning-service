@@ -10,3 +10,6 @@
 [submodule "h-learning-core"]
 	path = h-learning-core
 	url = git@github.com:duyhung2k4/h-learning-core.git
+[submodule "h-learning-fe"]
+	path = h-learning-fe
+	url = git@github.com:duyhung2k4/h-learning-fe.git
