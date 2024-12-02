@@ -13,3 +13,6 @@
 [submodule "h-learning-fe"]
 	path = h-learning-fe
 	url = git@github.com:duyhung2k4/h-learning-fe.git
+[submodule "h-learning-fe-admin"]
+	path = h-learning-fe-admin
+	url = git@github.com:duyhung2k4/h-learning-fe-admin.git
