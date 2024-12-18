@@ -51,9 +51,3 @@
 ### Yêu cầu:
 - **Go:** >=1.20
 - **Docker:** >=20.x
-
-### Hướng dẫn cài đặt:
-1. Clone repository:
-   ```bash
-   git clone https://github.com/your-username/online-learning-platform.git
-   cd online-learning-platform
