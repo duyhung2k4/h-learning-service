@@ -1,0 +1,38 @@
+core_service:
+  host: localhost
+  port: 10000
+  socket: 8080
+
+upload_mp4_service:
+  host: localhost
+  port: 10001
+  socket: 8081
+
+encoding_service:
+  host: localhost
+  port: 10002
+  socket: 8082
+
+video_hls_service:
+  host: localhost
+  port: 10003
+  socket: 8083
+
+psql:
+  name: h_learning_core
+  port: 5432
+  user: postgres
+  password: 123456
+  host: 192.168.0.105
+
+redis: localhost:6379
+
+queue-quantity: queue_mp4_360_p
+
+rabbitmq: amqp://guest:guest@localhost:5672/
+
+smpt:
+  email: abangudot@gmail.com
+  host: smtp.gmail.com
+  port: 587
+  password: jwwtlisxqedfaxce

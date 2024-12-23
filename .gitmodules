@@ -1,14 +1,14 @@
 [submodule "h-learning-upload-mp4"]
-	path = h-learning-upload-mp4
+	path = service/cmd/upload-mp4-service
 	url = git@github.com:duyhung2k4/h-learning-upload-mp4.git
 [submodule "h-learning-encoding-hls"]
-	path = h-learning-encoding-hls
+	path = service/cmd/encoding-service
 	url = git@github.com:duyhung2k4/h-learning-encoding-hls.git
 [submodule "h-learning-video-hls"]
-	path = h-learning-video-hls
+	path = service/cmd/video-hls-service
 	url = git@github.com:duyhung2k4/h-learning-video-hls.git
 [submodule "h-learning-core"]
-	path = h-learning-core
+	path = service/cmd/core-service
 	url = git@github.com:duyhung2k4/h-learning-core.git
 [submodule "h-learning-fe"]
 	path = h-learning-fe
