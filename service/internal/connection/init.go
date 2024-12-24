@@ -2,6 +2,7 @@ package connection
 
 import (
 	"flag"
+	"log"
 )
 
 func init() {
@@ -20,5 +21,5 @@ func init() {
 	initSmptAuth()
 	initLogger()
 
-	print("connect ok")
+	log.Println("connect ok")
 }

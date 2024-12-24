@@ -18,16 +18,21 @@ video_hls_service:
   port: 10003
   socket: 8083
 
+quizz_service:
+  host: localhost
+  port: 10004
+  socket: 8084
+
 psql:
   name: h_learning_core
   port: 5432
   user: postgres
   password: 123456
-  host: 20.6.129.53
+  host: 192.168.0.103
 
 redis: localhost:6379
 
-queue-quantity: queue_mp4_360_p
+queue_quantity: queue_mp4_360_p
 
 rabbitmq: amqp://guest:guest@localhost:5672/
 

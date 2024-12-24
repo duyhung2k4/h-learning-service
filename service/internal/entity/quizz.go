@@ -10,7 +10,7 @@ type Quizz struct {
 	Ask        string         `json:"ask"`
 	ResultType string         `json:"resultType"`
 	Result     pq.StringArray `json:"result" gorm:"type:text[]"`
-	Pption     pq.StringArray `json:"option" gorm:"type:text[]"`
+	Option     pq.StringArray `json:"option" gorm:"type:text[]"`
 	Time       int            `json:"time"`
 
 	EntityType ENTITY_TYPE `json:"entityType"`
@@ -20,6 +20,6 @@ type Quizz struct {
 type ENTITY_TYPE string
 
 const (
-	QUIZZ_VIDEO_LESSION ENTITY_TYPE = "quizz_video_lession"
-	QUIZZ_LESSION       ENTITY_TYPE = "quizz_lession"
+	QUIZZ_VIDEO_LESSION ENTITY_TYPE = "QUIZZ_VIDEO_LESSION"
+	QUIZZ_LESSION       ENTITY_TYPE = "QUIZZ_LESSION"
 )

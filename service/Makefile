@@ -6,6 +6,8 @@ encoding:
 	go run cmd/encoding-service/main.go
 video-hls:
 	go run cmd/video-hls-service/main.go
+quizz:
+	go run cmd/quizz-service/main.go
 
 # push mess to queue with quantity
 # job delete video

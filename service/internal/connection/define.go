@@ -7,7 +7,8 @@ type Connection struct {
 	EncodingService  ServiceConnection `mapstructure:"encoding_service"`
 	UploadMp4Service ServiceConnection `mapstructure:"upload_mp4_service"`
 	VideoHlsService  ServiceConnection `mapstructure:"video_hls_service"`
-	QueueQuantity    string            `mapstructure:"queue-quantity"`
+	QuizzService     ServiceConnection `mapstructure:"quizz_service"`
+	QueueQuantity    string            `mapstructure:"queue_quantity"`
 	Psql             PsqlConnection    `mapstructure:"psql"`
 	Smpt             SmptConnection    `mapstructure:"smpt"`
 }
