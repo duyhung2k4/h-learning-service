@@ -31,8 +31,8 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type QuizzServiceClient interface {
-	GetById(ctx context.Context, in *sharedgrpc.ID, opts ...grpc.CallOption) (*Quizz, error)
-	GetListByEntityId(ctx context.Context, in *sharedgrpc.ID, opts ...grpc.CallOption) (*GetListByEntityIdResponse, error)
+	GetById(ctx context.Context, in *sharedgrpc.ID, opts ...grpc.CallOption) (*QuizzResponse, error)
+	GetListByEntityId(ctx context.Context, in *GetListQuizzRequest, opts ...grpc.CallOption) (*GetListByEntityIdResponse, error)
 	CreateQuizz(ctx context.Context, in *CreateQuizzRequest, opts ...grpc.CallOption) (*sharedgrpc.ID, error)
 	UpdateQuizz(ctx context.Context, in *UpdateQuizzRequest, opts ...grpc.CallOption) (*sharedgrpc.Empty, error)
 	DeleteById(ctx context.Context, in *sharedgrpc.ID, opts ...grpc.CallOption) (*sharedgrpc.Empty, error)
@@ -46,9 +46,9 @@ func NewQuizzServiceClient(cc grpc.ClientConnInterface) QuizzServiceClient {
 	return &quizzServiceClient{cc}
 }
 
-func (c *quizzServiceClient) GetById(ctx context.Context, in *sharedgrpc.ID, opts ...grpc.CallOption) (*Quizz, error) {
+func (c *quizzServiceClient) GetById(ctx context.Context, in *sharedgrpc.ID, opts ...grpc.CallOption) (*QuizzResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Quizz)
+	out := new(QuizzResponse)
 	err := c.cc.Invoke(ctx, QuizzService_GetById_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -56,7 +56,7 @@ func (c *quizzServiceClient) GetById(ctx context.Context, in *sharedgrpc.ID, opt
 	return out, nil
 }
 
-func (c *quizzServiceClient) GetListByEntityId(ctx context.Context, in *sharedgrpc.ID, opts ...grpc.CallOption) (*GetListByEntityIdResponse, error) {
+func (c *quizzServiceClient) GetListByEntityId(ctx context.Context, in *GetListQuizzRequest, opts ...grpc.CallOption) (*GetListByEntityIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetListByEntityIdResponse)
 	err := c.cc.Invoke(ctx, QuizzService_GetListByEntityId_FullMethodName, in, out, cOpts...)
@@ -100,8 +100,8 @@ func (c *quizzServiceClient) DeleteById(ctx context.Context, in *sharedgrpc.ID, 
 // All implementations must embed UnimplementedQuizzServiceServer
 // for forward compatibility.
 type QuizzServiceServer interface {
-	GetById(context.Context, *sharedgrpc.ID) (*Quizz, error)
-	GetListByEntityId(context.Context, *sharedgrpc.ID) (*GetListByEntityIdResponse, error)
+	GetById(context.Context, *sharedgrpc.ID) (*QuizzResponse, error)
+	GetListByEntityId(context.Context, *GetListQuizzRequest) (*GetListByEntityIdResponse, error)
 	CreateQuizz(context.Context, *CreateQuizzRequest) (*sharedgrpc.ID, error)
 	UpdateQuizz(context.Context, *UpdateQuizzRequest) (*sharedgrpc.Empty, error)
 	DeleteById(context.Context, *sharedgrpc.ID) (*sharedgrpc.Empty, error)
@@ -115,10 +115,10 @@ type QuizzServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedQuizzServiceServer struct{}
 
-func (UnimplementedQuizzServiceServer) GetById(context.Context, *sharedgrpc.ID) (*Quizz, error) {
+func (UnimplementedQuizzServiceServer) GetById(context.Context, *sharedgrpc.ID) (*QuizzResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetById not implemented")
 }
-func (UnimplementedQuizzServiceServer) GetListByEntityId(context.Context, *sharedgrpc.ID) (*GetListByEntityIdResponse, error) {
+func (UnimplementedQuizzServiceServer) GetListByEntityId(context.Context, *GetListQuizzRequest) (*GetListByEntityIdResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetListByEntityId not implemented")
 }
 func (UnimplementedQuizzServiceServer) CreateQuizz(context.Context, *CreateQuizzRequest) (*sharedgrpc.ID, error) {
@@ -170,7 +170,7 @@ func _QuizzService_GetById_Handler(srv interface{}, ctx context.Context, dec fun
 }
 
 func _QuizzService_GetListByEntityId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(sharedgrpc.ID)
+	in := new(GetListQuizzRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -182,7 +182,7 @@ func _QuizzService_GetListByEntityId_Handler(srv interface{}, ctx context.Contex
 		FullMethod: QuizzService_GetListByEntityId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QuizzServiceServer).GetListByEntityId(ctx, req.(*sharedgrpc.ID))
+		return srv.(QuizzServiceServer).GetListByEntityId(ctx, req.(*GetListQuizzRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

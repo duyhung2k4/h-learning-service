@@ -1,6 +1,7 @@
 package connection
 
 import (
+	"app/generated/grpc/servicegrpc"
 	"net/smtp"
 
 	"github.com/gorilla/websocket"
@@ -61,4 +62,12 @@ func GetConnectionInfo() Connection {
 
 func GetLogger() *zap.Logger {
 	return logger
+}
+
+func GetGrpcClientQuizz() servicegrpc.QuizzServiceClient {
+	return grpcClientQuizz
+}
+
+func GetGrpcClientStream() servicegrpc.StreamServiceClient {
+	return grpcClientStream
 }

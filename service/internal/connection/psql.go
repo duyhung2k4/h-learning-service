@@ -47,6 +47,7 @@ func connectPostgresql(migrate bool) error {
 			&entity.RolePermission{},
 			&entity.Permission{},
 			&entity.CourseCategory{},
+			&entity.ProcessStream{},
 		)
 
 		if errMigrate != nil {

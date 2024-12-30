@@ -1,27 +1,56 @@
 core_service:
   host: localhost
   port: 10000
-  socket: 8080
+  grpc: 9000
+  socket: 8000
 
 upload_mp4_service:
   host: localhost
   port: 10001
-  socket: 8081
+  grpc: 9001
+  socket: 8001
 
 encoding_service:
   host: localhost
   port: 10002
-  socket: 8082
+  grpc: 9002
+  socket: 8002
 
 video_hls_service:
   host: localhost
   port: 10003
-  socket: 8083
+  grpc: 9003
+  socket: 8003
 
 quizz_service:
   host: localhost
   port: 10004
-  socket: 8084
+  grpc: 9004
+  socket: 8004
+
+blob_service:
+  host: localhost
+  port: 10005
+  grpc: 9005
+  socket: 8005
+
+stream_service:
+  host: localhost
+  port: 10006
+  grpc: 9006
+  socket: 8006
+
+merge_blob_service:
+  host: localhost
+  port: 10007
+  grpc: 9007
+  socket: 8007
+
+quantity_blob_service:
+  host: localhost
+  port: 10008
+  grpc: 9008
+  socket: 8008
 
 psql:
   name: h_learning_core

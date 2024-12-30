@@ -1,6 +1,7 @@
 package connection
 
 import (
+	"app/generated/grpc/servicegrpc"
 	"net/smtp"
 
 	"github.com/gorilla/websocket"
@@ -32,4 +33,7 @@ var (
 
 	// log
 	logger *zap.Logger
+
+	grpcClientQuizz  servicegrpc.QuizzServiceClient
+	grpcClientStream servicegrpc.StreamServiceClient
 )

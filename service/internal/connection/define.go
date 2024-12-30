@@ -1,22 +1,28 @@
 package connection
 
 type Connection struct {
-	Redis            string            `mapstructure:"redis"`
-	Rabbitmq         string            `mapstructure:"rabbitmq"`
-	CoreService      ServiceConnection `mapstructure:"core_service"`
-	EncodingService  ServiceConnection `mapstructure:"encoding_service"`
-	UploadMp4Service ServiceConnection `mapstructure:"upload_mp4_service"`
-	VideoHlsService  ServiceConnection `mapstructure:"video_hls_service"`
-	QuizzService     ServiceConnection `mapstructure:"quizz_service"`
-	QueueQuantity    string            `mapstructure:"queue_quantity"`
-	Psql             PsqlConnection    `mapstructure:"psql"`
-	Smpt             SmptConnection    `mapstructure:"smpt"`
+	Redis         string         `mapstructure:"redis"`
+	Rabbitmq      string         `mapstructure:"rabbitmq"`
+	QueueQuantity string         `mapstructure:"queue_quantity"`
+	Psql          PsqlConnection `mapstructure:"psql"`
+	Smpt          SmptConnection `mapstructure:"smpt"`
+
+	CoreService         ServiceConnection `mapstructure:"core_service"`
+	EncodingService     ServiceConnection `mapstructure:"encoding_service"`
+	UploadMp4Service    ServiceConnection `mapstructure:"upload_mp4_service"`
+	VideoHlsService     ServiceConnection `mapstructure:"video_hls_service"`
+	QuizzService        ServiceConnection `mapstructure:"quizz_service"`
+	BlobService         ServiceConnection `mapstructure:"blob_service"`
+	StreamService       ServiceConnection `mapstructure:"stream_service"`
+	MergeBlobSevice     ServiceConnection `mapstructure:"merge_blob_service"`
+	QuantityBlobService ServiceConnection `mapstructure:"quantity_blob_service"`
 }
 
 type ServiceConnection struct {
 	Host   string `mapstructure:"host"`
 	Port   string `mapstructure:"port"`
 	Socket string `mapstructure:"socket"`
+	Grpc   string `mapstructure:"grpc"`
 }
 
 type SmptConnection struct {

@@ -18,6 +18,7 @@ func init() {
 	connectPostgresql(*db)
 	connectRabbitmq()
 	connectRedis()
+	connectGrpcService()
 	initSmptAuth()
 	initLogger()
 
