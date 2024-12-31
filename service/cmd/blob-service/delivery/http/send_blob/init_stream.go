@@ -39,7 +39,7 @@ func (h *sendblobHandle) InitStream(ctx *gin.Context) {
 		"-vcodec", "libvpx", // Bộ mã hóa video VP8
 		"-s", "256x144", // Chuyển đổi độ phân giải video xuống 480p (854x480)
 		"-acodec", "libopus", // Bộ mã hóa âm thanh Opus
-		"-b:a", "64k", // Giữ bitrate âm thanh ở mức 64 kbps (âm thanh giữ nguyên chất lượng)
+		"-b:a", "128k", // Giữ bitrate âm thanh ở mức 64 kbps (âm thanh giữ nguyên chất lượng)
 		"pipe:1", // Ghi ra stdout
 	)
 
