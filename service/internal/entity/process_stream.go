@@ -7,6 +7,9 @@ type ProcessStream struct {
 	ProfileId      uint            `json:"profileId"`
 	IpMergeServer  string          `json:"ipMergeServer"`
 	IpStreamServer string          `json:"ipStreamServer"`
+	IpQuantity360p string          `json:"ipQuantity360p"`
+	IpQuantity480p string          `json:"ipQuantity480p"`
+	IpQuantity720p string          `json:"ipQuantity720p"`
 	Uuid           string          `json:"uuid"`
 	Status         PROCESSS_STATUS `json:"status"`
 

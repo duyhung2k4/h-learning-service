@@ -11,6 +11,7 @@ import (
 func connectGrpcService() {
 	connectGrpcServiceQuizz()
 	connectGrpcServerStream()
+	connectGrpcServerQuantity()
 }
 
 func connectGrpcServiceQuizz() {
@@ -31,4 +32,14 @@ func connectGrpcServerStream() {
 	grpcClientStream = servicegrpc.NewStreamServiceClient(connGrpc)
 
 	log.Println("connected service grpc stream")
+}
+
+func connectGrpcServerQuantity() {
+	connGrpc, err := grpc.NewClient(fmt.Sprintf("localhost:%s", conn.QuantityBlobService.Grpc), grpc.WithInsecure())
+	if err != nil {
+		log.Fatalf("did not connect: %v", err)
+	}
+	grpcClientQuantity = servicegrpc.NewQuantityServiceClient(connGrpc)
+
+	log.Println("connected service grpc quantity")
 }

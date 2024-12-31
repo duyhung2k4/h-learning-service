@@ -20,11 +20,11 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	QuizzService_GetById_FullMethodName           = "/app.servicegrpc.QuizzService/GetById"
-	QuizzService_GetListByEntityId_FullMethodName = "/app.servicegrpc.QuizzService/GetListByEntityId"
-	QuizzService_CreateQuizz_FullMethodName       = "/app.servicegrpc.QuizzService/CreateQuizz"
-	QuizzService_UpdateQuizz_FullMethodName       = "/app.servicegrpc.QuizzService/UpdateQuizz"
-	QuizzService_DeleteById_FullMethodName        = "/app.servicegrpc.QuizzService/DeleteById"
+	QuizzService_GetById_FullMethodName           = "/app.quizz.QuizzService/GetById"
+	QuizzService_GetListByEntityId_FullMethodName = "/app.quizz.QuizzService/GetListByEntityId"
+	QuizzService_CreateQuizz_FullMethodName       = "/app.quizz.QuizzService/CreateQuizz"
+	QuizzService_UpdateQuizz_FullMethodName       = "/app.quizz.QuizzService/UpdateQuizz"
+	QuizzService_DeleteById_FullMethodName        = "/app.quizz.QuizzService/DeleteById"
 )
 
 // QuizzServiceClient is the client API for QuizzService service.
@@ -245,7 +245,7 @@ func _QuizzService_DeleteById_Handler(srv interface{}, ctx context.Context, dec 
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var QuizzService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "app.servicegrpc.QuizzService",
+	ServiceName: "app.quizz.QuizzService",
 	HandlerType: (*QuizzServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

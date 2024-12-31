@@ -71,3 +71,7 @@ func GetGrpcClientQuizz() servicegrpc.QuizzServiceClient {
 func GetGrpcClientStream() servicegrpc.StreamServiceClient {
 	return grpcClientStream
 }
+
+func GetGrpcClientQuantity() servicegrpc.QuantityServiceClient {
+	return grpcClientQuantity
+}

@@ -34,6 +34,7 @@ var (
 	// log
 	logger *zap.Logger
 
-	grpcClientQuizz  servicegrpc.QuizzServiceClient
-	grpcClientStream servicegrpc.StreamServiceClient
+	grpcClientQuizz    servicegrpc.QuizzServiceClient
+	grpcClientStream   servicegrpc.StreamServiceClient
+	grpcClientQuantity servicegrpc.QuantityServiceClient
 )
