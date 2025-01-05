@@ -2,6 +2,6 @@ syntax = "proto3";
 
 package app.sharedgrpc;
 
-option go_package = "app/generated/grpc/sharedgrpc";
+option go_package = "app/generated/proto/sharedgrpc";
 
 message Empty {}

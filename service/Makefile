@@ -26,4 +26,6 @@ all:
 	go run cmd/quizz-service/main.go &
 	go run cmd/merge-blob-service/main.go &
 	go run cmd/stream-service/main.go &
+	go run cmd/quizz-service/main.go &
+	go run cmd/quantity-blob-service/main.go &
 	wait

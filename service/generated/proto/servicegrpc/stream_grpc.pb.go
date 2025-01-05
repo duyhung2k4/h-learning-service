@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.28.1
-// source: servicegrpc/stream.proto
+// source: proto/servicegrpc/stream.proto
 
 package servicegrpc
 
@@ -19,7 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	StreamService_InitProcess_FullMethodName = "/app.stream.StreamService/InitProcess"
+	StreamService_InitProcess_FullMethodName    = "/app.stream.StreamService/InitProcess"
+	StreamService_SendStreamBlob_FullMethodName = "/app.stream.StreamService/SendStreamBlob"
 )
 
 // StreamServiceClient is the client API for StreamService service.
@@ -27,6 +28,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type StreamServiceClient interface {
 	InitProcess(ctx context.Context, in *InitProcessRequest, opts ...grpc.CallOption) (*InitProcessResponse, error)
+	SendStreamBlob(ctx context.Context, opts ...grpc.CallOption) (grpc.ClientStreamingClient[SendStreamBlobRequest, SendStreamBlobResponse], error)
 }
 
 type streamServiceClient struct {
@@ -47,11 +49,25 @@ func (c *streamServiceClient) InitProcess(ctx context.Context, in *InitProcessRe
 	return out, nil
 }
 
+func (c *streamServiceClient) SendStreamBlob(ctx context.Context, opts ...grpc.CallOption) (grpc.ClientStreamingClient[SendStreamBlobRequest, SendStreamBlobResponse], error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	stream, err := c.cc.NewStream(ctx, &StreamService_ServiceDesc.Streams[0], StreamService_SendStreamBlob_FullMethodName, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &grpc.GenericClientStream[SendStreamBlobRequest, SendStreamBlobResponse]{ClientStream: stream}
+	return x, nil
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type StreamService_SendStreamBlobClient = grpc.ClientStreamingClient[SendStreamBlobRequest, SendStreamBlobResponse]
+
 // StreamServiceServer is the server API for StreamService service.
 // All implementations must embed UnimplementedStreamServiceServer
 // for forward compatibility.
 type StreamServiceServer interface {
 	InitProcess(context.Context, *InitProcessRequest) (*InitProcessResponse, error)
+	SendStreamBlob(grpc.ClientStreamingServer[SendStreamBlobRequest, SendStreamBlobResponse]) error
 	mustEmbedUnimplementedStreamServiceServer()
 }
 
@@ -64,6 +80,9 @@ type UnimplementedStreamServiceServer struct{}
 
 func (UnimplementedStreamServiceServer) InitProcess(context.Context, *InitProcessRequest) (*InitProcessResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method InitProcess not implemented")
+}
+func (UnimplementedStreamServiceServer) SendStreamBlob(grpc.ClientStreamingServer[SendStreamBlobRequest, SendStreamBlobResponse]) error {
+	return status.Errorf(codes.Unimplemented, "method SendStreamBlob not implemented")
 }
 func (UnimplementedStreamServiceServer) mustEmbedUnimplementedStreamServiceServer() {}
 func (UnimplementedStreamServiceServer) testEmbeddedByValue()                       {}
@@ -104,6 +123,13 @@ func _StreamService_InitProcess_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _StreamService_SendStreamBlob_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(StreamServiceServer).SendStreamBlob(&grpc.GenericServerStream[SendStreamBlobRequest, SendStreamBlobResponse]{ServerStream: stream})
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type StreamService_SendStreamBlobServer = grpc.ClientStreamingServer[SendStreamBlobRequest, SendStreamBlobResponse]
+
 // StreamService_ServiceDesc is the grpc.ServiceDesc for StreamService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -116,6 +142,12 @@ var StreamService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _StreamService_InitProcess_Handler,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "servicegrpc/stream.proto",
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "SendStreamBlob",
+			Handler:       _StreamService_SendStreamBlob_Handler,
+			ClientStreams: true,
+		},
+	},
+	Metadata: "proto/servicegrpc/stream.proto",
 }

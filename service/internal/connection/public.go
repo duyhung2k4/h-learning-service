@@ -1,7 +1,7 @@
 package connection
 
 import (
-	"app/generated/grpc/servicegrpc"
+	"app/generated/proto/servicegrpc"
 	"net/smtp"
 
 	"github.com/gorilla/websocket"

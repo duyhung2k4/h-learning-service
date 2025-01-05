@@ -1,9 +1,9 @@
 package main
 
 import (
-	"app/generated/grpc/enumgrpc"
-	"app/generated/grpc/servicegrpc"
-	"app/generated/grpc/sharedgrpc"
+	"app/generated/proto/enumgrpc"
+	"app/generated/proto/servicegrpc"
+	"app/generated/proto/sharedgrpc"
 	"context"
 	"flag"
 	"fmt"

@@ -2,11 +2,11 @@ syntax = "proto3";
 
 package app.quizz;
 
-option go_package = "app/generated/servicegrpc";
+option go_package = "app/generated/proto/servicegrpc";
 
-import "enumgrpc/quizz_service.proto";
-import "sharedgrpc/id.proto";
-import "sharedgrpc/empty.proto";
+import "proto/enumgrpc/quizz_service.proto";
+import "proto/sharedgrpc/id.proto";
+import "proto/sharedgrpc/empty.proto";
 
 service QuizzService {
   rpc GetById(sharedgrpc.ID) returns (QuizzResponse) {}

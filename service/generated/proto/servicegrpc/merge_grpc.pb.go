@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.28.1
-// source: servicegrpc/merge.proto
+// source: proto/servicegrpc/merge.proto
 
 package servicegrpc
 
@@ -110,5 +110,5 @@ var MergeBlobService_ServiceDesc = grpc.ServiceDesc{
 			ClientStreams: true,
 		},
 	},
-	Metadata: "servicegrpc/merge.proto",
+	Metadata: "proto/servicegrpc/merge.proto",
 }

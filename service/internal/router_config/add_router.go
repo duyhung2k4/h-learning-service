@@ -2,6 +2,7 @@ package routerconfig
 
 import (
 	constant "app/internal/constants"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
@@ -24,4 +25,14 @@ func AddRouter(r *gin.Engine, config RouterConfig) {
 	case constant.DELETE_HTTP:
 		routerGroup.DELETE(config.Endpoint, handle...)
 	}
+}
+
+func FileServer(r *gin.Engine, config RouterConfig, dir string) {
+	handle := []gin.HandlerFunc{}
+	handle = append(handle, config.Middleware...)
+	handle = append(handle, config.Handle)
+
+	routerGroup := r.Group("api/v1/hls")
+	routerGroup.Use(handle...)
+	routerGroup.StaticFS("/file", http.Dir(dir))
 }

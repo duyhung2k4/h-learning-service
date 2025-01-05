@@ -2,12 +2,12 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.28.1
-// source: servicegrpc/quizz.proto
+// source: proto/servicegrpc/quizz.proto
 
 package servicegrpc
 
 import (
-	sharedgrpc "app/generated/grpc/sharedgrpc"
+	sharedgrpc "app/generated/proto/sharedgrpc"
 	context "context"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
@@ -270,5 +270,5 @@ var QuizzService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "servicegrpc/quizz.proto",
+	Metadata: "proto/servicegrpc/quizz.proto",
 }

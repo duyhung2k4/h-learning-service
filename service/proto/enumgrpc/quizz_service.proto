@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package app.enumgrpc;
 
-option go_package = "app/generated/grpc/enumgrpc";
+option go_package = "app/generated/proto/enumgrpc";
 
 enum EntityType {
   QUIZZ_VIDEO_LESSON = 0;
