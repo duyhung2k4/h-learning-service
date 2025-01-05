@@ -16,6 +16,7 @@ type Connection struct {
 	StreamService       ServiceConnection `mapstructure:"stream_service"`
 	MergeBlobSevice     ServiceConnection `mapstructure:"merge_blob_service"`
 	QuantityBlobService ServiceConnection `mapstructure:"quantity_blob_service"`
+	ProxyService        ServiceConnection `mapstructure:"proxy_service"`
 }
 
 type ServiceConnection struct {

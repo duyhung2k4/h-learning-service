@@ -43,3 +43,15 @@ func connectGrpcServerQuantity() {
 
 	log.Println("connected service grpc quantity")
 }
+
+func ConnectGrpcServerQuantityProxy() servicegrpc.QuantityServiceClient {
+	connGrpc, err := grpc.NewClient(fmt.Sprintf("localhost:%s", conn.ProxyService.Grpc), grpc.WithInsecure())
+	if err != nil {
+		log.Fatalf("did not connect: %v", err)
+	}
+
+	grpcClient := servicegrpc.NewQuantityServiceClient(connGrpc)
+	log.Println("connected service grpc quantity")
+
+	return grpcClient
+}

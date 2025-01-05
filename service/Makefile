@@ -16,6 +16,8 @@ blob:
 	go run cmd/blob-service/main.go
 quantity:
 	go run cmd/quantity-blob-service/main.go
+proxy:
+	go run cmd/proxy-service/main.go
 # push mess to queue with quantity
 # job delete video
 all:

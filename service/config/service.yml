@@ -52,6 +52,12 @@ quantity_blob_service:
   grpc: 9008
   socket: 8008
 
+proxy_service:
+  host: localhost
+  port: 10009
+  grpc: 9009
+  socket: 8009
+
 psql:
   name: h_learning_core
   port: 5432
