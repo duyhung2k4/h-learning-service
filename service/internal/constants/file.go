@@ -11,4 +11,6 @@ var (
 	ENCODING_HLS_VIDEO     FOLDER = "cmd/encoding-service/data/video"
 
 	VIDEO_HLS_VIDEO FOLDER = "cmd/video-hls-service/data/video"
+
+	MERGE_BLOB FOLDER = "cmd/merge-blob/data/stream"
 )

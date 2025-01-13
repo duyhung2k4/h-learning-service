@@ -4,6 +4,7 @@ type Connection struct {
 	Redis         string         `mapstructure:"redis"`
 	Rabbitmq      string         `mapstructure:"rabbitmq"`
 	QueueQuantity string         `mapstructure:"queue_quantity"`
+	PublicIp      string         `mapstructure:"public_ip"`
 	Psql          PsqlConnection `mapstructure:"psql"`
 	Smpt          SmptConnection `mapstructure:"smpt"`
 

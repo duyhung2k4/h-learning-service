@@ -1,34 +1,18 @@
-version: '3.8'
+version: "3.8"
 
 services:
-  golang-server:
+  merge-blob:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "${APP_PORT}:${APP_PORT}"
-      - "${SOCKET_PORT}:${SOCKET_PORT}"
-      # - "6379:6379"
-      # - "5672:5672"
+      - "10007:10007"
+      - "9007:9007"
+      - "8007:8007"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     environment:
-      - APP_HOST=${APP_HOST}
-      - APP_PORT=${APP_PORT}
-      - SOCKET_PORT=${SOCKET_PORT}
-      - DB_NAME=${DB_NAME}
-      - DB_PORT=${DB_PORT}
-      - DB_HOST=${DB_HOST}
-      - DB_USER=${DB_USER}
-      - DB_PASSWORD=${DB_PASSWORD}
-      - REDIS_URL=${REDIS_URL}
-      - RABBITMQ_URL=${RABBITMQ_URL}
-      - SMTP_EMAIL=${SMTP_EMAIL}
-      - SMTP_HOST=${SMTP_HOST}
-      - SMTP_PORT=${SMTP_PORT}
-      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - IP=host.docker.internal
     restart: always
     stdin_open: true
     tty: true
-
-# networks:
-#   golang-network:
-#     driver: bridge

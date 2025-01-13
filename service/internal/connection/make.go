@@ -29,6 +29,7 @@ func makeFolder() {
 		string(constant.ENCODING_HLS_ENDCODING),
 		string(constant.ENCODING_HLS_VIDEO),
 		string(constant.VIDEO_HLS_VIDEO),
+		string(constant.MERGE_BLOB),
 	}
 
 	var wg sync.WaitGroup

@@ -48,6 +48,7 @@ func connectPostgresql(migrate bool) error {
 			&entity.Permission{},
 			&entity.CourseCategory{},
 			&entity.ProcessStream{},
+			&entity.Service{},
 		)
 
 		if errMigrate != nil {
