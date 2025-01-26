@@ -9,6 +9,7 @@ type QueryReq[T any] struct {
 	Condition   string              `json:"condition"`
 	Preload     map[string]*string  `json:"preload"`
 	Omit        map[string][]string `json:"omit"`
+	Offset      int                 `json:"offset"`
 	Limit       int                 `json:"limit"`
 	Joins       []string            `json:"joins"`
 	Method      constant.METHOD     `json:"method"`

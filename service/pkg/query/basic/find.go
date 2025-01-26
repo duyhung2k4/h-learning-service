@@ -41,6 +41,9 @@ func (s *queryService[T]) Find(payload requestdata.QueryReq[T]) ([]T, error) {
 	if payload.Limit != 0 {
 		query = query.Limit(payload.Limit)
 	}
+	if payload.Offset != 0 {
+		query.Offset(payload.Offset)
+	}
 
 	err := query.Find(&list).Error
 	if err != nil {
