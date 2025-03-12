@@ -106,11 +106,7 @@ services:
 
   rabbitmq:
     image: rabbitmq:4.0-management
-    deploy:
-      replicas: 1
-      placement:
-        constraints:
-          - node.hostname == ip-172-31-31-77
+    container_name: rabbitmq-ctn
     ports:
       - "5672:5672"
       - "15672:15672"
