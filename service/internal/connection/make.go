@@ -24,12 +24,8 @@ func makeVariable() {
 
 func makeFolder() {
 	folderNames := []string{
-		string(constant.THUMNAIL_COURSE),
-		string(constant.UPLOAD_MP4_VIDEO),
-		string(constant.ENCODING_HLS_ENDCODING),
-		string(constant.ENCODING_HLS_VIDEO),
-		string(constant.VIDEO_HLS_VIDEO),
-		string(constant.MERGE_BLOB),
+		string(constant.MP4),
+		string(constant.VIDEO),
 	}
 
 	var wg sync.WaitGroup
