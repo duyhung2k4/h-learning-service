@@ -22,18 +22,6 @@
 [submodule "service/cmd/quizz-service"]
 	path = service/cmd/quizz-service
 	url = git@github.com:duyhung2k4/h-learning-quizz-service.git
-[submodule "service/cmd/stream-service"]
-	path = service/cmd/stream-service
-	url = git@github.com:duyhung2k4/h-learning-stream-service.git
-[submodule "service/cmd/quantity-blob-service"]
-	path = service/cmd/quantity-blob-service
-	url = git@github.com:duyhung2k4/h-learning-quantity-blob-service.git
-[submodule "service/cmd/merge-blob"]
-	path = service/cmd/merge-blob
-	url = git@github.com:duyhung2k4/h-learning-merge-blob-service.git
 [submodule "service/cmd/blob-service"]
 	path = service/cmd/blob-service
 	url = git@github.com:duyhung2k4/h-learning-blob-service.git
-[submodule "service/cmd/proxy-service"]
-	path = service/cmd/proxy-service
-	url = git@github.com:duyhung2k4/h-learning-proxy.git
