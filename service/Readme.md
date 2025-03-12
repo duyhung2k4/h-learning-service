@@ -21,3 +21,6 @@
 		"-f", "mpegts", // Định dạng đầu ra là MPEG-TS
 		"pipe:1", // Ghi ra stdout
 	)
+
+# note:
+  - Bỏ service: stream-service, proxy-service, quantity-blob-service, merge-blob-service
