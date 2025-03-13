@@ -19,9 +19,6 @@
 [submodule "service/cmd/core-service"]
 	path = service/cmd/core-service
 	url = git@github.com:duyhung2k4/h-learning-core.git
-[submodule "service/cmd/quizz-service"]
-	path = service/cmd/quizz-service
-	url = git@github.com:duyhung2k4/h-learning-quizz-service.git
 [submodule "service/cmd/blob-service"]
 	path = service/cmd/blob-service
 	url = git@github.com:duyhung2k4/h-learning-blob-service.git

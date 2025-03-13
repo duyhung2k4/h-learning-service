@@ -26,6 +26,7 @@ func makeFolder() {
 	folderNames := []string{
 		string(constant.MP4),
 		string(constant.VIDEO),
+		string(constant.THUMBNAIL_COURSE),
 	}
 
 	var wg sync.WaitGroup
