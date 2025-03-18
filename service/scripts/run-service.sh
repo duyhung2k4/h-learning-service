@@ -5,13 +5,12 @@ go run cmd/core-service/main.go & pid1=$!
 go run cmd/upload-mp4-service/main.go & pid2=$!
 go run cmd/encoding-service/main.go & pid3=$!
 go run cmd/video-hls-service/main.go & pid4=$!
-go run cmd/quizz-service/main.go & pid5=$!
-go run cmd/blob-service/main.go & pid6=$!
+go run cmd/blob-service/main.go & pid5=$!
 
 # Định nghĩa hàm để dừng tất cả các process khi script bị dừng
 cleanup() {
   echo "Stopping all services..."
-  kill $pid1 $pid2 $pid3 $pid4 $pid5 $pid6
+  kill $pid1 $pid2 $pid3 $pid4 $pid5
   wait
   echo "All services stopped."
 }
