@@ -15,28 +15,27 @@ func (s *queryService[T]) First(payload requestdata.QueryReq[T]) (*T, error) {
 
 	query := s.psql
 
-	for key, omitChild := range payload.Omit {
-		if len(omitChild) == 0 {
-			personOmit = append(personOmit, key)
-		}
-	}
-
 	for _, j := range payload.Joins {
 		query = query.Joins(j)
 	}
 
 	for p, c := range payload.Preload {
 		if c != nil {
-			query.Preload(p, gorm.Expr(*c), func(tx *gorm.DB) *gorm.DB {
+			query = query.Preload(p, gorm.Expr(*c), func(tx *gorm.DB) *gorm.DB {
 				return tx.Omit(payload.Omit[p]...)
 			})
 		} else {
-			query.Preload(p, func(tx *gorm.DB) *gorm.DB {
+			query = query.Preload(p, func(tx *gorm.DB) *gorm.DB {
 				return tx.Omit(payload.Omit[p]...)
 			})
 		}
 	}
 
+	for key, omitChild := range payload.Omit {
+		if len(omitChild) == 0 {
+			personOmit = append(personOmit, key)
+		}
+	}
 	query = query.Where(payload.Condition, payload.Args...).Omit(personOmit...)
 
 	err := query.First(&item).Error
