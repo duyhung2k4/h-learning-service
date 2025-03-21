@@ -19,3 +19,6 @@
 [submodule "service/cmd/blob-service"]
 	path = service/cmd/blob-service
 	url = git@github.com:duyhung2k4/h-learning-blob-service.git
+[submodule "service/cmd/video-hls-service"]
+	path = service/cmd/video-hls-service
+	url = git@github.com:duyhung2k4/h-learning-video-hls.git
