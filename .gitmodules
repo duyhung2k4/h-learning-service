@@ -4,9 +4,6 @@
 [submodule "h-learning-fe-admin"]
 	path = h-learning-fe-admin
 	url = git@github.com:duyhung2k4/h-learning-fe-admin.git
-[submodule "h-learning-mobile"]
-	path = h-learning-mobile
-	url = git@github.com:duyhung2k4/h-learning-mobile.git
 [submodule "service/cmd/upload-mp4-service"]
 	path = service/cmd/upload-mp4-service
 	url = git@github.com:duyhung2k4/h-learning-upload-mp4.git
